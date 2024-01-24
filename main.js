@@ -83,10 +83,33 @@ document.addEventListener('DOMContentLoaded', () => {
             precioProducto.textContent = `$${producto.precio * producto.cantidad}`;
             precioProducto.classList.add('fw-bold', 'fs-4')
 
+            //Boton para eliminar productos del carrito
             const botonEliminar = document.createElement('button');
             botonEliminar.textContent = 'Eliminar';
             botonEliminar.classList.add('m-2', 'btn', 'btn-danger')
-            botonEliminar.addEventListener('click', () => eliminarProducto(index));
+            botonEliminar.onclick = () => {
+                Swal.fire({
+                    title: "Eliminar",
+                    text: "¿Desea quitar el producto de la lista?",
+                    icon: "warning",
+                    confirmButtonText: "Confirmar",
+                    confirmButtonColor: "green",
+                    showCancelButton: true,
+                    cancelButtonText: "Cancelar",
+                    cancelButtonColor: "grey",
+                }).then(respuesta => {
+                    if (respuesta.isConfirmed) {
+                        Swal.fire({
+                            title: "Borrado con exito.",
+                            timer: "1000",
+                            timerProgressBar: "true",
+                            icon: "success"
+                        });
+                        eliminarProducto(index);
+                    }
+                })
+            }
+
 
             productoDiv.appendChild(imagenProducto);
             productoDiv.appendChild(nombreProducto);
@@ -151,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carrito.length === 0) {
             Swal.fire({
                 title: "Error",
-                text: "Debes agregar productos antes de finalizar tu compra.",
+                text: "Debe agregar productos antes de finalizar tu compra.",
                 icon: "error",
             })
         } else {
@@ -184,7 +207,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carrito.length === 0) {
             Swal.fire({
                 title: "Error",
-                text: "Debes agregar productos antes de finalizar tu compra.",
+                text: "Debe agregar productos antes de finalizar tu compra.",
                 icon: "error",
             })
         } else {
