@@ -1,7 +1,9 @@
+import Swal from "sweetalert2";
+
 // Para esperar a que cargue el html
 document.addEventListener('DOMContentLoaded', () => {
 
-    import Swal from "sweetalert2";
+    
 
     // Array para almacenar los productos en el carrito
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -160,7 +162,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Evento de clic para el botón finalizar compra
     const btnFinalizarCompra = document.getElementById('btn-comprar');
-    btnFinalizarCompra.addEventListener('click', finalizarCompra);
+    /*btnFinalizarCompra.addEventListener('click', finalizarCompra);*/
+
+    btnFinalizarCompra.onclick = () => {
+        Swal.fire( {
+            title: "Compra realizada!",
+            text: "Gracias por tu compra."
+        } )
+    }
+
+
+
 
 });
 
