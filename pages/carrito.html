@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ModaRural - Tienda de Ropa</title>
+    <!-- Conexion con bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-warning-subtle">
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-4 ">
+        <div class="container-fluid ">
+            <a class="navbar-brand fs-2 " href="../index.html">ModaRural</a>
+            <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrito.html">Carrito <span id="cart-count"
+                                class="badge bg-danger">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Cuerpo de la pagina -->
+    <!-- Carrito y productos -->
+    <div class="container mt-5">
+        <h1 class="text-center mb-4 fw-bold fs-1 text-decoration-underline">Carrito:</h1>
+        <div class="">
+            <div id="lista-carrito" ></div>
+            <div id="carrito-vacio"></div>
+            <div id="total-carrito" class="my-2 py-2 container d-flex justify-content-center align-items-center border border-black rounded fs-2" ></div>
+        </div>
+    </div>
+    <!-- Botones para comprar y vaciar el carrito -->
+    <div class=" container d-flex justify-content-center align-items-center">
+        <button id="btn-comprar" class="btn btn-success m-3 fs-3">Finalizar compra</button>
+        <button id="btn-vaciar" class="btn btn-danger m-3 fs-3">Vaciar Carrito</button>
+    </div>
+    <!-- Footer -->
+    <footer class="footer mt-auto py-2 bg-dark text-center text-white">
+        Redes sociales: <a href="https://www.facebook.com/">Facebook</a> | <a
+            href="https://www.instagram.com/">Instagram</a> | <a href="https://twitter.com/?lang=es">Twitter</a>
+        <p>&copy; 2023 Tienda de ropa. Todos los derechos reservados.</p>
+    </footer>
+    <!-- Conexion con boostrap en javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <!-- Conexion con el archivo javascript -->
+    <script src="../main.js"></script>
+</body>
+
+</html>
