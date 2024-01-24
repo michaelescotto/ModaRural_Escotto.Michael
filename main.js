@@ -1,5 +1,8 @@
 // Para esperar a que cargue el html
 document.addEventListener('DOMContentLoaded', () => {
+
+    import Swal from "sweetalert2";
+
     // Array para almacenar los productos en el carrito
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
