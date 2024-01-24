@@ -1,5 +1,7 @@
 //Importando libreria de SweetAlert2
 import Swal from "sweetalert2";
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
 
 // Para esperar a que cargue el html
 document.addEventListener('DOMContentLoaded', () => {
@@ -139,20 +141,21 @@ document.addEventListener('DOMContentLoaded', () => {
         verificarCarritoVacio();
     }
 
-    // Evento de clic para el botón agregar al carrito
+    // Botón agregar al carrito
     const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
-
     botonesAgregarCarrito.forEach((boton) => {
-        boton.addEventListener('click', () => {
+        boton.onclick = () => {
+            Toastify({
+                text: "Se añadió con éxito."
+            }).showToast();
             const card = boton.closest('.card');
             const id = card.getAttribute('data-id');
             const nombre = card.querySelector('.card-title').textContent;
             const precioString = card.querySelector('#precio').textContent.replace('$', '').trim();
             const precio = parseFloat(precioString);
             const imagen = card.querySelector('.card-img-top').src;
-
             agregarAlCarrito(id, nombre, precio, imagen);
-        });
+        }
     });
 
     actualizarCantidadCarrito();
