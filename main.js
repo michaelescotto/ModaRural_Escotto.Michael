@@ -147,25 +147,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Evento de clic para el botón vaciar el carrito
     const btnVaciarCarrito = document.getElementById('btn-vaciar');
-    btnVaciarCarrito.addEventListener('click', vaciarCarrito);
-
-    // Función para finalizar la compra
-    function finalizarCompra() {
+    btnVaciarCarrito.onclick = () => {
         if (carrito.length === 0) {
-            alert('El carrito está vacío. Agrega productos antes de finalizar la compra.');
+            Swal.fire({
+                title: "Error",
+                text: "Debes agregar productos antes de finalizar tu compra.",
+                icon: "error",
+            })
         } else {
-            vaciarCarrito();
-            alert('¡Gracias por tu compra!');
+            Swal.fire({
+                title: "¿Vaciar el carrito?",
+                text: "¡Se eliminaran todos los productos de la lista!",
+                icon: "warning",
+                confirmButtonText: "Confirmar",
+                confirmButtonColor: "orange",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                cancelButtonColor: "grey",
+            }).then(respuesta => {
+                if (respuesta.isConfirmed) {
+                    Swal.fire({
+                        title: "Carrito vacío",
+                        text: "Se han eliminado todos los productos de la lista.",
+                        icon: "info",
+                    })
+                    vaciarCarrito();
+
+                }
+            })
         }
     }
 
     // Evento de clic para el botón finalizar compra
     const btnFinalizarCompra = document.getElementById('btn-comprar');
     btnFinalizarCompra.onclick = () => {
-        Swal.fire({
-            title: "Gracias"
-        })
-        vaciarCarrito();
+        if (carrito.length === 0) {
+            Swal.fire({
+                title: "Error",
+                text: "Debes agregar productos antes de finalizar tu compra.",
+                icon: "error",
+            })
+        } else {
+            Swal.fire({
+                title: "Finalizar la compra",
+                text: "¿Desea finalizar su compra?",
+                icon: "question",
+                confirmButtonText: "Confirmar",
+                confirmButtonColor: "green",
+                showCancelButton: true,
+                cancelButtonText: "Cancelar",
+                cancelButtonColor: "grey",
+            }).then(respuesta => {
+                if (respuesta.isConfirmed) {
+                    Swal.fire({
+                        title: "Compra realizada con exito.",
+                        text: "Gracias por su compra!",
+                        icon: "success",
+                    })
+                    vaciarCarrito();
+                }
+            })
+        }
     }
 
 
