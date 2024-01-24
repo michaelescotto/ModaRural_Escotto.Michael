@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             botonEliminar.onclick = () => {
                 Swal.fire({
                     title: "Eliminar",
-                    text: "¿Desea quitar el producto de la lista?",
+                    text: `¿Desea quitar ${producto.nombre} de la lista?`,
                     icon: "warning",
                     confirmButtonText: "Confirmar",
                     confirmButtonColor: "green",
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }).then(respuesta => {
                     if (respuesta.isConfirmed) {
                         Swal.fire({
-                            title: "Borrado con exito.",
+                            title: "Borrado con exito!",
                             timer: "1000",
                             timerProgressBar: "true",
                             icon: "success"
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (carrito.length === 0) {
             Swal.fire({
                 title: "Error",
-                text: "Debe agregar productos antes de finalizar tu compra.",
+                text: "Debe agregar productos antes de vaciar el carrito.",
                 icon: "error",
             })
         } else {
