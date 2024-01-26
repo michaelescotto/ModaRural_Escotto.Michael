@@ -5,10 +5,8 @@ import "toastify-js/src/toastify.css";
 
 // Para esperar a que cargue el html
 document.addEventListener('DOMContentLoaded', () => {
-
     // Array para almacenar los productos en el carrito
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
     // Función para agregar un producto al carrito
     function agregarAlCarrito(id, nombre, precio, imagen) {
         const productoExistente = carrito.find((producto) => producto.id === id);
@@ -24,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 imagen,
             });
         }
-
         // Actualizar el carrito en el localStorage
         localStorage.setItem('carrito', JSON.stringify(carrito));
         // Actualizar la cantidad en el carrito en la barra de navegación
@@ -51,6 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Función para eliminar un producto del carrito y del localStorage
+    function eliminarProducto(index) {
+        if (carrito[index].cantidad > 1) {
+            carrito[index].cantidad -= 1;
+        } else {
+            carrito.splice(index, 1);
+        }
+
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        actualizarCantidadCarrito();
+        mostrarCarrito();
+        verificarCarritoVacio();
+    }
+
     // Función para actualizar la cantidad en la barra de navegación
     function actualizarCantidadCarrito() {
         const cantidadCarrito = document.getElementById('cart-count');
@@ -61,16 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function mostrarCarrito() {
         const listaCarrito = document.getElementById('lista-carrito');
         const totalCarrito = document.getElementById('total-carrito');
-
         listaCarrito.innerHTML = '';
-
         // Valor del carrito inicial
         let total = 0;
-
         // Recorrer el carrito y agregar cada producto al div
         carrito.forEach((producto, index) => {
             const productoDiv = document.createElement('div');
-            productoDiv.classList.add('producto-carrito');
+            productoDiv.classList.add('producto-carrito', 'border', 'border-dark', 'rounded', 'd-flex', 'justify-content-around', 'align-items-center', 'my-3');
 
             const imagenProducto = document.createElement('img');
             imagenProducto.src = producto.imagen;
@@ -79,16 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const nombreProducto = document.createElement('span');
             nombreProducto.textContent = `${producto.cantidad} x ${producto.nombre}`;
-            nombreProducto.classList.add('mx-2', 'fw-bold', 'fs-5')
+            nombreProducto.classList.add('mx-2', 'fw-bold', 'fs-3')
 
             const precioProducto = document.createElement('span');
             precioProducto.textContent = `$${producto.precio * producto.cantidad}`;
-            precioProducto.classList.add('fw-bold', 'fs-4')
+            precioProducto.classList.add('fw-bold', 'fs-3')
 
             //Boton para eliminar productos del carrito
             const botonEliminar = document.createElement('button');
-            botonEliminar.textContent = 'Eliminar';
-            botonEliminar.classList.add('m-2', 'btn', 'btn-danger')
+            botonEliminar.textContent = 'Quitar';
+            botonEliminar.classList.add('m-2', 'btn', 'btn-warning', 'p-3', 'fs-5')
             botonEliminar.onclick = () => {
                 Swal.fire({
                     title: "Eliminar",
@@ -111,30 +119,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 })
             }
-
-
             productoDiv.appendChild(imagenProducto);
             productoDiv.appendChild(nombreProducto);
             productoDiv.appendChild(precioProducto);
             productoDiv.appendChild(botonEliminar);
-
             listaCarrito.appendChild(productoDiv);
-
             total += producto.precio * producto.cantidad;
         });
-
         totalCarrito.textContent = `Total: $${total}`;
         verificarCarritoVacio();
     }
 
-    // Función para eliminar un producto del carrito y del localStorage
-    function eliminarProducto(index) {
-        if (carrito[index].cantidad > 1) {
-            carrito[index].cantidad -= 1;
-        } else {
-            carrito.splice(index, 1);
-        }
-
+    // Función para vaciar el carrito
+    function vaciarCarrito() {
+        carrito = [];
         localStorage.setItem('carrito', JSON.stringify(carrito));
         actualizarCantidadCarrito();
         mostrarCarrito();
@@ -152,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 className: "fs-2 fw-bold border border-dark border-4 rounded-5",
                 style: {
                     background: "linear-gradient(to right, #89a09a, #c1c0ae)",
-                  }
+                }
             }).showToast();
             const card = boton.closest('.card');
             const id = card.getAttribute('data-id');
@@ -167,15 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
     actualizarCantidadCarrito();
     mostrarCarrito();
     verificarCarritoVacio();
-
-    // Función para vaciar el carrito
-    function vaciarCarrito() {
-        carrito = [];
-        localStorage.setItem('carrito', JSON.stringify(carrito));
-        actualizarCantidadCarrito();
-        mostrarCarrito();
-        verificarCarritoVacio();
-    }
 
     // Evento de clic para el botón vaciar el carrito
     const btnVaciarCarrito = document.getElementById('btn-vaciar');
@@ -242,7 +231,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Evento de clic para el botón enviar mensaje de contacto
+    const btnReiniciarForm = document.getElementById('btnReiniciarForm');
+    btnReiniciarForm.onclick = () => {
+        Swal.fire({
+            title: "Formulario",
+            text: "Se limpio correctamente.",
+            icon: "info",
+            timer: 1000,
+            timerProgressBar: "true"
+        });
+    }
+
+    // Evento de clic para el botón enviar mensaje de contacto
+    const btnEnviarMensaje = document.getElementById('btnEnviarMensaje');
+    btnEnviarMensaje.onclick = (e) => {
+        const nombreForm = document.getElementById('nombreForm').value;
+        const emailForm = document.getElementById('emailForm').value;
+        const mensajeForm = document.getElementById('mensajeForm').value;
+        if (nombreForm.trim() != '' && emailForm.trim() != '' && mensajeForm.trim() != '') {
+            Swal.fire({
+                title: "Mensaje enviado!",
+                text: "¡Gracias por ponerte en contacto!",
+                icon: "success",
+            })
+            e.preventDefault();
+            document.getElementById('nombreForm').value = '';
+            document.getElementById('emailForm').value = '';
+            document.getElementById('mensajeForm').value = '';
+        };
+    };
 
 });
-
-

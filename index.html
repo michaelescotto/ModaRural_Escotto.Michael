@@ -38,30 +38,56 @@
         </div>
     </nav>
     <!-- Cuerpo  -->
-    <div class="container mt-5">
-        <!-- Encabezado  -->
-        <div class="text-center mb-3">
-            <img src="images/modarural.png" alt="Logo" class="img-fluid shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-            <i class="bi bi-cart2"></i>
-            <h2 class="mb-4">Tejiendo Tradición, Vistiendo Autenticidad</h2>
-            <p>Bienvenido a ModaRural, donde cada hilo cuenta una historia y cada prenda es una obra maestra hecha a
-                mano. Sumérgete en nuestra colección única de ropa duradera y rústica, diseñada para reflejar la esencia
-                de la moda artesanal. Cada pieza es cuidadosamente tejida con amor y dedicación, utilizando técnicas
-                tradicionales que resaltan la autenticidad y la durabilidad.</p>
+    <div class="container mt-5 text-center">
+        <img src="../images/modarural.png" alt="Logo" class="img-fluid shadow-lg p-3 mb-3 bg-body-tertiary rounded">
+    </div>
+    <div class="container my-5">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/diapo0.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/diapo1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/diapo2.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/diapo3.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
         <!-- Lista de los productos  -->
+        <div class="container">
+            <h1 class="fs-1 text-center my-5 text-decoration-underline fw-bold">
+                Productos:
+            </h1>
+        </div>
+
+
         <div class="row justify-content-center align-items-center mt-4 align-items-stretch">
             <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
                 <div class="card " data-id="1">
                     <img src="images/poncho_gaucho.jpg" class="card-img-top" alt="Poncho">
                     <div class="card-body">
                         <h2 class="card-title">Poncho</h2>
-                        <p class="card-text">Rústico de lana, cálido, practico y elegante. Tejido a mano con amor y
+                        <p class="card-text fs-4">Rústico de lana, cálido, practico y elegante. Tejido a mano con amor y
                             autenticidad.
                         </p>
-                        <p id="precio" class="card-text fw-bold">$11800</p>
+                        <p id="precio" class="card-text fw-bold fs-2">$11800</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                            <button class="btn btn-secondary btn-agregar-carrito fs-4" type="button">Agregar al
                                 carrito</button>
                         </div>
                     </div>
@@ -72,11 +98,12 @@
                     <img src="images/bombacha_gaucho.png" class="card-img-top" alt="Bombacha">
                     <div class="card-body">
                         <h2 class="card-title">Bombacha</h2>
-                        <p class="card-text">De campo resistente, cómoda y diseñada para el espíritu libre del gaucho.
+                        <p class="card-text fs-4">De campo resistente, cómoda y diseñada para el espíritu libre del
+                            gaucho.
                         </p>
-                        <p id="precio" class="card-text fw-bold">$9600</p>
+                        <p id="precio" class="card-text fw-bold fs-2">$9600</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                            <button class="btn btn-secondary btn-agregar-carrito fs-4" type="button">Agregar al
                                 carrito</button>
                         </div>
                     </div>
@@ -87,11 +114,12 @@
                     <img src="images/boina_gaucho.jpg" class="card-img-top" alt="Boina">
                     <div class="card-body">
                         <h2 class="card-title">Boina</h2>
-                        <p class="card-text">Estilo clásico, tejido duradero. La esencia del gaucho auténtico en cada
+                        <p class="card-text fs-4">Estilo clásico, tejido duradero. La esencia del gaucho auténtico en
+                            cada
                             detalle</p>
-                        <p id="precio" class="card-text fw-bold">$4300</p>
+                        <p id="precio" class="card-text fw-bold fs-2">$4300</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                            <button class="btn btn-secondary btn-agregar-carrito fs-4" type="button">Agregar al
                                 carrito</button>
                         </div>
                     </div>
@@ -102,11 +130,11 @@
                     <img src="images/botas_gaucho.jpg" class="card-img-top" alt="Botas">
                     <div class="card-body">
                         <h2 class="card-title">Botas</h2>
-                        <p class="card-text">Robustas, cómodas y auténticas, ideales para caminar con estilo en la
+                        <p class="card-text fs-4">Robustas, cómodas y auténticas, ideales para caminar con estilo en la
                             tradición rural.</p>
-                        <p id="precio" class="card-text fw-bold">$10900</p>
+                        <p id="precio" class="card-text fw-bold fs-2">$10900</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                            <button class="btn btn-secondary btn-agregar-carrito fs-4" type="button">Agregar al
                                 carrito</button>
                         </div>
                     </div>
@@ -117,11 +145,11 @@
                     <img src="images/cinturon.jpg" class="card-img-top" alt="Cinturon">
                     <div class="card-body">
                         <h2 class="card-title">Cinturon</h2>
-                        <p class="card-text">Cinturón de cuero crudo, resistente, ideal para el
+                        <p class="card-text fs-4">Cinturón de cuero crudo, resistente, ideal para el
                             estilo gauchesco y duradero.</p>
-                        <p id="precio" class="card-text fw-bold">$3600</p>
+                        <p id="precio" class="card-text fw-bold fs-2">$3600</p>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                            <button class="btn btn-secondary btn-agregar-carrito fs-4" type="button">Agregar al
                                 carrito</button>
                         </div>
                     </div>
