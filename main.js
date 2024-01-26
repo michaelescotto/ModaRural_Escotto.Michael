@@ -146,7 +146,13 @@ document.addEventListener('DOMContentLoaded', () => {
     botonesAgregarCarrito.forEach((boton) => {
         boton.onclick = () => {
             Toastify({
-                text: "Se añadió con éxito."
+                text: "Se añadió con éxito.",
+                destination: "./pages/carrito.html",
+                duration: 3000,
+                className: "fs-2 fw-bold border border-dark border-4 rounded-5",
+                style: {
+                    background: "linear-gradient(to right, #89a09a, #c1c0ae)",
+                  }
             }).showToast();
             const card = boton.closest('.card');
             const id = card.getAttribute('data-id');

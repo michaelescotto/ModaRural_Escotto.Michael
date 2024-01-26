@@ -17,21 +17,21 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fs-4 ">
         <div class="container-fluid ">
-            <a class="navbar-brand fs-1 fw-bold" href="index.html">ModaRural</a>
             <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item active px-2">
                         <a class="nav-link" href="index.html">Inicio</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item px-2">
                         <a class="nav-link" href="pages/contacto.html">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/carrito.html"><i class="fa-solid fa-cart-shopping p-2"></i><span id="cart-count" class="badge bg-danger">0</span>  </a>
+                    <li class="nav-item px-2">
+                        <a class="nav-link" href="pages/carrito.html"><i class="fa-solid fa-cart-shopping p-2"></i><span
+                                id="cart-count" class="badge bg-danger">0</span> </a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
     <div class="container mt-5">
         <!-- Encabezado  -->
         <div class="text-center mb-3">
-            <h1 class="text-center mb-4 fw-bold fs-1">ModaRural - Tienda de ropa</h1>
+            <img src="images/modarural.png" alt="Logo" class="img-fluid shadow-lg p-3 mb-5 bg-body-tertiary rounded">
             <i class="bi bi-cart2"></i>
             <h2 class="mb-4">Tejiendo Tradición, Vistiendo Autenticidad</h2>
             <p>Bienvenido a ModaRural, donde cada hilo cuenta una historia y cada prenda es una obra maestra hecha a
@@ -50,20 +50,24 @@
                 tradicionales que resaltan la autenticidad y la durabilidad.</p>
         </div>
         <!-- Lista de los productos  -->
-        <div class="row justify-content-center align-items-center mt-4">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card" data-id="1">
+        <div class="row justify-content-center align-items-center mt-4 align-items-stretch">
+            <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
+                <div class="card " data-id="1">
                     <img src="images/poncho_gaucho.jpg" class="card-img-top" alt="Poncho">
                     <div class="card-body">
                         <h2 class="card-title">Poncho</h2>
-                        <p class="card-text">Rústico de lana, cálido, practico y elegante. Tejido a mano con amor y autenticidad.
+                        <p class="card-text">Rústico de lana, cálido, practico y elegante. Tejido a mano con amor y
+                            autenticidad.
                         </p>
                         <p id="precio" class="card-text fw-bold">$11800</p>
-                        <button class="btn btn-primary btn-agregar-carrito">Agregar al carrito</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                                carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
                 <div class="card" data-id="2">
                     <img src="images/bombacha_gaucho.png" class="card-img-top" alt="Bombacha">
                     <div class="card-body">
@@ -71,11 +75,14 @@
                         <p class="card-text">De campo resistente, cómoda y diseñada para el espíritu libre del gaucho.
                         </p>
                         <p id="precio" class="card-text fw-bold">$9600</p>
-                        <button class="btn btn-primary btn-agregar-carrito">Agregar al carrito</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                                carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
                 <div class="card" data-id="3">
                     <img src="images/boina_gaucho.jpg" class="card-img-top" alt="Boina">
                     <div class="card-body">
@@ -83,11 +90,14 @@
                         <p class="card-text">Estilo clásico, tejido duradero. La esencia del gaucho auténtico en cada
                             detalle</p>
                         <p id="precio" class="card-text fw-bold">$4300</p>
-                        <button class="btn btn-primary btn-agregar-carrito ">Agregar al carrito</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                                carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
                 <div class="card" data-id="4">
                     <img src="images/botas_gaucho.jpg" class="card-img-top" alt="Botas">
                     <div class="card-body">
@@ -95,7 +105,25 @@
                         <p class="card-text">Robustas, cómodas y auténticas, ideales para caminar con estilo en la
                             tradición rural.</p>
                         <p id="precio" class="card-text fw-bold">$10900</p>
-                        <button class="btn btn-primary btn-agregar-carrito">Agregar al carrito</button>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                                carrito</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 shadow p-1 m-2 flex-fill">
+                <div class="card" data-id="5">
+                    <img src="images/cinturon.jpg" class="card-img-top" alt="Cinturon">
+                    <div class="card-body">
+                        <h2 class="card-title">Cinturon</h2>
+                        <p class="card-text">Cinturón de cuero crudo, resistente, ideal para el
+                            estilo gauchesco y duradero.</p>
+                        <p id="precio" class="card-text fw-bold">$3600</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-secondary btn-agregar-carrito" type="button">Agregar al
+                                carrito</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,10 +132,37 @@
     </div>
     <!-- Footer -->
     <footer class="footer mt-auto py-2 bg-dark text-center text-white">
-        Redes sociales: <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a> | <a
-            href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a> | <a href="https://twitter.com/?lang=es"><i class="fa-brands fa-x-twitter"></i></a>
-        <p>&copy; 2023 Tienda de ropa. Todos los derechos reservados.</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Contacto</h3>
+                    <p>Email: mundorural@shop.com</p>
+                    <p>Teléfono: (+598) 123 456-7890</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li class="pb-1"><a href="index.html" class="text-white">Inicio</a></li>
+                        <li class="py-1"><a href="pages/contacto.html" class="text-white">Contacto</a></li>
+                        <li class="py-1"><a href="pages/carrito.html" class="text-white">Carrito</a></li>
+                    </ul>
+                </div>
+                <div class=" col-md-4">
+                    <h3>Síguenos</h3>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <a href="https://www.facebook.com/" target="_blank" class="text-white mr-3"><i
+                                class="fa-brands fa-facebook p-3 fs-3"></i></a>
+                        <a href="https://twitter.com/?lang=es" target="_blank" class="text-white mr-3"><i
+                                class="fa-brands fa-x-twitter p-3 fs-3"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="text-white"><i
+                                class="fa-brands fa-instagram p-3 fs-3"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2023 ModaRural. Todos los derechos reservados.</p>
     </footer>
+
     <!-- Conexion con boostrap en javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
