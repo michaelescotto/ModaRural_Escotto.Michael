@@ -3,8 +3,7 @@ import Swal from "sweetalert2";
 import Toastify from 'toastify-js';
 import "toastify-js/src/toastify.css";
 
-// Para esperar a que cargue el html
-document.addEventListener('DOMContentLoaded', () => {
+function inicializarApp() {
     // Array para almacenar los productos en el carrito
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
@@ -141,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         verificarCarritoVacio();
     }
 
-    // Botón agregar al carrito
+    // Evento de click botón agregar al carrito
     const botonesAgregarCarrito = document.querySelectorAll('.btn-agregar-carrito');
     botonesAgregarCarrito.forEach((boton) => {
         boton.onclick = () => {
@@ -233,18 +232,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    actualizarCantidadCarrito();
+    mostrarCarrito();
+    verificarCarritoVacio();
 
+};
+
+// Para esperar a que cargue el html
+document.addEventListener('DOMContentLoaded', () => {
+    inicializarApp();
+})
+
+// Retrasar ligeramente la ejecución de los eventos del formulario
+setTimeout(() => {
     // Evento de clic para el botón reiniciar formulario
     const btnReiniciarForm = document.getElementById('btnReiniciarForm');
     btnReiniciarForm.onclick = () => {
         Swal.fire({
             title: "Formulario",
-            text: "Se limpio correctamente.",
+            text: "Se limpió correctamente.",
             icon: "info",
             timer: 1000,
             timerProgressBar: "true"
         });
     }
+
     // Evento de clic para el botón enviar formulario
     const btnEnviarMensajeForm = document.getElementById('btnEnviarMensajeForm');
     btnEnviarMensajeForm.onclick = (e) => {
@@ -263,5 +275,24 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('mensajeForm').value = '';
         };
     };
+}, 100);
 
-});
+
+
+const mensajesContacto = document.querySelector('#mensajesContacto');
+
+fetch('https://jsonplaceholder.typicode.com/comments')
+    .then(response => response.json())
+    .then(comments => {
+        const primerosComentarios = comments.slice(0, 10);
+
+        primerosComentarios.forEach(comment => {
+            const comentarioP = document.createElement('p');
+            comentarioP.textContent = comment.body;
+            comentarioP.classList.add('h2', 'font-weight-bold', 'p-3', 'border', 'border-dark', 'rounded');
+            mensajesContacto.appendChild(comentarioP);
+        });
+    })
+    .catch(error => {
+        console.error('Error al obtener los comentarios:', error);
+    });
