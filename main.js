@@ -7,10 +7,10 @@ import "toastify-js/src/toastify.css";
 document.addEventListener('DOMContentLoaded', () => {
     // Array para almacenar los productos en el carrito
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
     // Función para agregar un producto al carrito
     function agregarAlCarrito(id, nombre, precio, imagen) {
         const productoExistente = carrito.find((producto) => producto.id === id);
-
         if (productoExistente) {
             productoExistente.cantidad += 1;
         } else {
@@ -37,14 +37,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const carritoVacioDiv = document.getElementById('carrito-vacio');
         const listaCarrito = document.getElementById('lista-carrito');
 
-        carritoVacioDiv.innerHTML = '';
+        // Verificar la existencia de los elementos antes de manipularlos
+        if (carritoVacioDiv && listaCarrito) {
+            carritoVacioDiv.innerHTML = '';
 
-        if (carrito.length === 0) {
-            const mensajeCarritoVacio = document.createElement('p');
-            mensajeCarritoVacio.textContent = 'El carrito esta vacío.';
-            mensajeCarritoVacio.classList.add('my-5', 'py-5', 'container', 'd-flex', 'justify-content-center', 'align-items-center', 'fs-2', 'fas')
+            if (carrito.length === 0) {
+                const mensajeCarritoVacio = document.createElement('p');
+                mensajeCarritoVacio.textContent = 'No hay productos agregados.';
+                mensajeCarritoVacio.classList.add('my-5', 'py-5', 'container', 'd-flex', 'justify-content-center', 'align-items-center', 'fs-2', 'fas');
 
-            carritoVacioDiv.appendChild(mensajeCarritoVacio);
+                carritoVacioDiv.appendChild(mensajeCarritoVacio);
+            }
         }
     }
 
@@ -55,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             carrito.splice(index, 1);
         }
-
         localStorage.setItem('carrito', JSON.stringify(carrito));
         actualizarCantidadCarrito();
         mostrarCarrito();
@@ -78,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Recorrer el carrito y agregar cada producto al div
         carrito.forEach((producto, index) => {
             const productoDiv = document.createElement('div');
-            productoDiv.classList.add('producto-carrito', 'border', 'border-dark', 'rounded', 'd-flex', 'justify-content-around', 'align-items-center', 'my-3');
+            productoDiv.classList.add('container', 'producto-carrito', 'border', 'border-dark', 'rounded', 'd-flex', 'justify-content-around', 'align-items-center', 'my-3');
 
             const imagenProducto = document.createElement('img');
             imagenProducto.src = producto.imagen;
@@ -231,7 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Evento de clic para el botón enviar mensaje de contacto
+
+    // Evento de clic para el botón reiniciar formulario
     const btnReiniciarForm = document.getElementById('btnReiniciarForm');
     btnReiniciarForm.onclick = () => {
         Swal.fire({
@@ -242,10 +245,9 @@ document.addEventListener('DOMContentLoaded', () => {
             timerProgressBar: "true"
         });
     }
-
-    // Evento de clic para el botón enviar mensaje de contacto
-    const btnEnviarMensaje = document.getElementById('btnEnviarMensaje');
-    btnEnviarMensaje.onclick = (e) => {
+    // Evento de clic para el botón enviar formulario
+    const btnEnviarMensajeForm = document.getElementById('btnEnviarMensajeForm');
+    btnEnviarMensajeForm.onclick = (e) => {
         const nombreForm = document.getElementById('nombreForm').value;
         const emailForm = document.getElementById('emailForm').value;
         const mensajeForm = document.getElementById('mensajeForm').value;
