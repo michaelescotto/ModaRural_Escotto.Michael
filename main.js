@@ -277,10 +277,8 @@ setTimeout(() => {
     };
 }, 100);
 
-
-
+// Tomar comentarios de la API externa
 const mensajesContacto = document.querySelector('#mensajesContacto');
-
 fetch('https://jsonplaceholder.typicode.com/comments')
     .then(response => response.json())
     .then(comments => {
